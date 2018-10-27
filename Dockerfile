@@ -65,8 +65,8 @@ ENV APACHE_PID_FILE /var/run/apache2.pid
 
 # ADD ~/projects/hreasily /var/www/hreasily
 
-EXPOSE 80
-EXPOSE 88
+# EXPOSE 80
+# EXPOSE 88
 
 
 # CLEANUP
