@@ -26,13 +26,19 @@ RUN apt-get update \
 
 # INSTALL PHP AND MODULES
 RUN apt-get update \
-  && apt-get install -y php5.6-cli \
+  && apt-get install -y php5.6 \
+  php5.6-cli \
   php5.6-mysql \
   php5.6-mbstring \
   php5.6-xml \
   php5.6-gd \
   php5.6-curl \
-  php5.6-bcmath
+  php5.6-bcmath \
+  php5.6-mcrypt \
+  php5.6-intl \
+  php5.6-xsl \
+  php5.6-zip \
+  libapache2-mod-php5.6
 
 # INSTALL COMPOSER
 RUN apt-get update \
@@ -60,6 +66,9 @@ ENV APACHE_RUN_GROUP www-data
 ENV APACHE_LOG_DIR /var/log/apache2
 ENV APACHE_LOCK_DIR /var/lock/apache2
 ENV APACHE_PID_FILE /var/run/apache2.pid
+
+# ENABLE APACHE MPM PREFORK
+# RUN a2dismod mpm_event && a2enmod mpm_prefork
 
 # RUN service apache2 restart
 
